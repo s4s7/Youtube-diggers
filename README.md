@@ -11,7 +11,7 @@
 # 画面遷移図
 
 
-### Youtubeが一つの検索エンジンしか持っていない
+### https://github.com/s4s7/Youtube-diggers/issues/
 　　
 
 # 解決方法
