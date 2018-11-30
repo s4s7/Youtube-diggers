@@ -5,7 +5,7 @@
 
 # 要件定義
 
-### https://github.com/s4s7/Youtube-diggers/issues/2
+### https://github.com/s4s7/Youtube-diggers/issues/2  
 
 
 # DB設計
