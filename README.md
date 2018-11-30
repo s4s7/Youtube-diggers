@@ -56,8 +56,8 @@
 |------|----|-------|
 |name|string|null: false|
 |thumbnail|string|null: false|
-|subscribers|fixnum|null: false|
-|views|fixnum|null: false|
+|subscriber|fixnum|null: false|
+|view|fixnum|null: false|
 
 ### Association
 - has_many :users, through:urls_users
