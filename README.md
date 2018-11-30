@@ -62,7 +62,7 @@
 
 ### Association
 - has_many :urls
-
+　　
 
 ## total_pointsテーブル
 |Column|Type|Options|
@@ -71,7 +71,8 @@
 
 ### Association
 - has_one :url
-　　
+
+
 # 画面遷移図
 
 ### https://github.com/s4s7/Youtube-diggers/issues/4
