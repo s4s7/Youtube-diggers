@@ -72,7 +72,7 @@
 ### Association
 - has_one :url
 
-
-# 画面遷移図
+　　
+# ER図
 
 ### https://github.com/s4s7/Youtube-diggers/issues/4
