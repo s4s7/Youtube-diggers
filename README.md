@@ -3,12 +3,13 @@
 ### Youtube-diggers
 　　
 
-# アプリの目的(解決したい課題)
+# 要件定義  
 
-### 現在Youtubeにおいて、質は高いのに再生回数やチャンネル登録者数が少ないために眠ってしまっている動画がある。この日の目を見ることなく埋もれている動画をみんなで掘り起こすのがこのアプリの目的
+### https://github.com/s4s7/Youtube-diggers/issues/2
 　　
 
-# 問題が起きている理由
+# 画面遷移図
+
 
 ### Youtubeが一つの検索エンジンしか持っていない
 　　
@@ -21,7 +22,6 @@
 ②動画のURLからページに飛び、チャンネル登録数、投稿日、再生回数をスクレイピングする
 ③スレイピングにより取ってきた各パラメータからポイントを計算する
 ④ポイントの低い順もしくは高い順に並び替える
-
 
 # DB設計
 
@@ -72,7 +72,7 @@
 
 ### Association
 - has_many :urls
-
+　　
 
 ## total_pointsテーブル
 |Column|Type|Options|
@@ -81,3 +81,8 @@
 
 ### Association
 - has_one :url
+
+　　
+# ER図
+
+### https://github.com/s4s7/Youtube-diggers/issues/4
