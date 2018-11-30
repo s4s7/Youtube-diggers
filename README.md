@@ -1,12 +1,17 @@
 # アプリ名
 
-### Youtube-diggers   
+### Youtube-diggers
 　　
 
-# 要件定義
+# 要件定義  
 
-### https://github.com/s4s7/Youtube-diggers/issues/2  
+### https://github.com/s4s7/Youtube-diggers/issues/2
+　　
 
+# 画面遷移図
+
+### https://github.com/s4s7/Youtube-diggers/issues/3
+　　
 
 # DB設計
 
@@ -66,3 +71,7 @@
 
 ### Association
 - has_one :url
+　　
+# 画面遷移図
+
+### https://github.com/s4s7/Youtube-diggers/issues/4
