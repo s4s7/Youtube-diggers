@@ -1,0 +1,77 @@
+.contribution{
+    @extend .z-depth-1;
+    color: $whitesmoke;
+    background-color: $contribution-background-color;
+    width: 98%;
+    margin: 10px auto;
+    line-height: 60px;
+    .header {
+        height: 60px;
+        font-size: 24px;
+        border-bottom: 1px solid rgba(160,160,160,0.2);
+        &__left {
+            margin-left: 20px;
+            padding: 0;
+            display: inline;
+        }
+        &__right {
+            float: right;
+            padding: 0 10px;
+            @media only screen and (max-width: 640px) {
+            display: none;
+            };
+            &_item {
+                display: inline-block;
+                padding: 0 10px;
+            }
+        }
+    }
+    .body {
+        height: 300px;
+        padding: 10px 60px;
+        display: flex;
+        justify-content: space-between;
+        .card {
+            width: 320px;
+            height: 280px;
+            background-color: $light-grey;
+            display: inline-block;
+            @extend .z-depth-1;
+            &__image {
+                height: 180px;
+            }
+            &__content {
+                height: 100px;
+                display: flex;
+                color: $black;
+                &_order {
+                    font-size: 30px;
+                    font-weight: bold;
+                    padding: 4px;
+                    line-height: 40px;
+                }
+                &_info {
+                    max-width: 100%;
+                    line-height: 20px;
+                    padding: 4px;
+                    &_title{
+                        height: 50px;
+                        font-size: 14px;
+                        font-weight: bold;
+                    }
+                    &_detail {
+                        font-size: 14px;
+                        color: $light-black;
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        font-size: 12px;
+        height: auto;
+        padding: 5px 60px;
+        border-top: 1px solid rgba(160,160,160,0.2);
+        line-height: 20px;
+    }
+}
