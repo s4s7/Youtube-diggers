@@ -3,7 +3,6 @@
     width: 980px;
     margin: 60px auto;
     padding: 60px;
-    background-color: #fff;
 
     .account-page__inner--left, .account-page__inner--right {
       float: left;
@@ -18,14 +17,13 @@
 
   .account-page__header {
     h2 {
-      margin-bottom: 10px;
       letter-spacing: 3px;
       font-size: 40px;
       font-weight: 200;
     }
 
     h5 {
-      margin-bottom: 98px;
+      margin-bottom: 108px;
       font-size: 14px;
       font-weight: 200;
       color: $light-black;
@@ -39,7 +37,7 @@
     }
 
     .btn {
-      margin: 20px 0;
+      margin: 1px 0 20px;
       color: #fff;
       background-color: #ccc;
       font-size: 14px;
