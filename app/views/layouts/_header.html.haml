@@ -9,4 +9,4 @@
         %li.nav__right_item
           = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav__right_logout'
         %li.nav__right_item
-          = link_to '投稿する', '#', class: 'nav__right_post'
+          = link_to '投稿する', new_url_path, class: 'nav__right_post'
