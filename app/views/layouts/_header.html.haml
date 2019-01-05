@@ -3,9 +3,10 @@
   = link_to 'YoutubeDiggers', '#', class: 'nav__brand-logo'
   .nav__right
     %ul
-      %li.nav__right_item
-        = link_to '投稿する', '#', class: 'nav__right_post'
-      %li.nav__right_item
-        = link_to 'マイページ', '#', class: 'nav__right_mypage'
-      %li.nav__right_item
-        = link_to 'ログアウト', '#', class: 'nav__right_logout'
+      - if user_signed_in?
+        %li.nav__right_item
+          = link_to 'マイページ', '#', class: 'nav__right_mypage'
+        %li.nav__right_item
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav__right_logout'
+        %li.nav__right_item
+          = link_to '投稿する', new_url_path, class: 'nav__right_post'
