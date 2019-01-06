@@ -1,0 +1,41 @@
+.post
+  %p 1. カテゴリーを以下から選択してください
+
+  .classification.filter
+    %a.btn1{ filter: "programing", href: "#"} プログラミング
+    %a.btn1{ filter: "business", href: "#"} ビジネス
+    %a.btn1{ filter: "design", href: "#"} デザイン
+    %a.btn1{ filter: "sport", href: "#"} スポーツ
+
+  .category
+    %a.btn2{ category: "programing", href: "#", value: 'バックエンド'} バックエンド
+    %a.btn2{ category: "programing", href: "#", value: 'フロントエンド'} フロントエンド
+    %a.btn2{ category: "programing", href: "#", value: 'インフラ'} インフラ
+    %a.btn2{ category: "programing", href: "#", value: '機械学習'} 機械学習
+    %a.btn2{ category: "programing", href: "#", value: 'ブロックチェーン'} ブロックチェーン
+    %a.btn2{ category: "business", href: "#", value: '会計'} 会計
+    %a.btn2{ category: "business", href: "#", value: '経営戦略'} 経営戦略
+    %a.btn2{ category: "design", href: "#", value: 'デザイン思考'} デザイン思考
+    %a.btn2{ category: "design", href: "#", value: 'マテリアルデザイン'} マテリアルデザイン
+    %a.btn2{ category: "sport", href: "#", value: 'スノーボード'} スノーボード
+
+  .chooseCategory
+    選んだカテゴリー：
+    %input{type: "text", id: "in1", value: ""}
+
+
+  %p 2. 掘り出したいyoutubeのURLを貼り付けてください
+
+  .post__url
+    .post__url_form
+      一番オススメな動画のURL
+      = form_for [@url] do |f|
+        = f.text_field :name, class: 'post__url_form', placeholder: 'urlを貼り付けてください'
+      二番目にオススメな動画のURL
+      = form_for [@url] do |f|
+        = f.text_field :name, class: 'post__url_form', placeholder: 'urlを貼り付けてください'
+      三番目にオススメな動画のURL
+      = form_for [@url] do |f|
+        = f.text_field :name, class: 'post__url_form', placeholder: 'urlを貼り付けてください'
+      = form_for [@url] do |f|
+        = f.submit 'Send', class: 'submit'
