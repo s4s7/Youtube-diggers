@@ -1,6 +1,6 @@
 .nav
   .nav__brand-logo
-  = link_to 'YoutubeDiggers', '#', class: 'nav__brand-logo'
+  = link_to 'YoutubeDiggers', root_path, class: 'nav__brand-logo'
   .nav__right
     %ul
       - if user_signed_in?
