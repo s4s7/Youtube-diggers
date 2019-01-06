@@ -1,5 +1,5 @@
 .post
-  %p 1. カテゴリーを以下から選択してください
+  #question 1. カテゴリーを以下から選択してください
 
   .classification.filter
     %a.btn1{ filter: "programing", href: "#"} プログラミング
@@ -24,18 +24,16 @@
     %input{type: "text", id: "in1", value: ""}
 
 
-  %p 2. 掘り出したいyoutubeのURLを貼り付けてください
+  #question 2. 掘り出したいyoutubeのURLを貼り付けてください
 
   .post__url
     .post__url_form
-      一番オススメな動画のURL
       = form_for [@url] do |f|
+        %p 一番オススメな動画のURL
         = f.text_field :name, class: 'post__url_form', placeholder: 'urlを貼り付けてください'
-      二番目にオススメな動画のURL
-      = form_for [@url] do |f|
+        %p 二番目にオススメな動画のURL
         = f.text_field :name, class: 'post__url_form', placeholder: 'urlを貼り付けてください'
-      三番目にオススメな動画のURL
-      = form_for [@url] do |f|
+        %p 三番目にオススメな動画のURL
         = f.text_field :name, class: 'post__url_form', placeholder: 'urlを貼り付けてください'
-      = form_for [@url] do |f|
+        %p
         = f.submit 'Send', class: 'submit'
