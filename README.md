@@ -20,7 +20,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references :user|foreign_key: true|
-|group_id|references :group|foreign_key: true|
+|url_id|references :url|foreign_key: true|
 |point|fixnum|null: false|
 |rank|fixnum|null: false|
 
