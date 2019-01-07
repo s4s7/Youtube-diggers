@@ -1,0 +1,2 @@
+class UrlsUser < ApplicationRecord
+end
