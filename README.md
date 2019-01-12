@@ -48,6 +48,7 @@
 |thumbnail|string|null: false|
 |subscriber|fixnum|null: false|
 |view|fixnum|null: false|
+|category_id|references :category|foreign_key: true|
 
 ### Association
 - has_many :users, through:urls_users
