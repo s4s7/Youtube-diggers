@@ -1,7 +1,7 @@
 .post
   #question 1. カテゴリーを以下から選択してください
 
-  .classification.filter
+  .filter
     %a.btn1{ filter: "programing", href: "#"} プログラミング
     %a.btn1{ filter: "business", href: "#"} ビジネス
     %a.btn1{ filter: "design", href: "#"} デザイン
@@ -19,21 +19,20 @@
     %a.btn2{ category: "design", href: "#", value: 'マテリアルデザイン'} マテリアルデザイン
     %a.btn2{ category: "sport", href: "#", value: 'スノーボード'} スノーボード
 
-  .chooseCategory
-    選んだカテゴリー：
-    %input{type: "text", id: "in1", value: ""}
+  .form
+    = form_for @category do |f|
+      = f.label :title, '選んだカテゴリー'
+      = f.text_field :name, placeholder: '上から選んでください'
 
+      = fields_for @url, url: urls_path do |url|
+        = url.label :title, '2.Youtubeの動画再生ページのurlを貼り付けてください', id: 'question'
+        = url.label :title, '1番目にすすめなURLを入れてください', class: 'form_rank'
+        = url.text_field :name, placeholder: 'urlを貼り付けてください'
 
-  #question 2. 掘り出したいyoutubeのURLを貼り付けてください
+        = url.label :title, '2番目におすすめなURLを入れてください', class: 'form_rank'
+        = url.text_field :name,  placeholder: 'urlを貼り付けてください'
 
-  .post__url
-    .post__url_form
-      = form_for [@url] do |f|
-        %p 一番オススメな動画のURL
-        = f.text_field :name, class: 'post__url_form', placeholder: 'urlを貼り付けてください'
-        %p 二番目にオススメな動画のURL
-        = f.text_field :name, class: 'post__url_form', placeholder: 'urlを貼り付けてください'
-        %p 三番目にオススメな動画のURL
-        = f.text_field :name, class: 'post__url_form', placeholder: 'urlを貼り付けてください'
-        %p
-        = f.submit 'Send', class: 'submit'
+        = url.label :title, '3番目におすすめなURLを入れてください', class: 'form_rank'
+        = url.text_field :name, placeholder: 'urlを貼り付けてください'
+      %p
+      = f.submit 'Send', class: 'submit'

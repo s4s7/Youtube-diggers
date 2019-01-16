@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function() {
     $boxes.on('click', function(e) {
       e.preventDefault();
       var $value = $(this).attr('value');
-      $('#in1').val($value)
+      $('#category_name').val($value)
     });
 
 });
