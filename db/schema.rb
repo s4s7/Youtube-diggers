@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_12_131517) do
+ActiveRecord::Schema.define(version: 2019_01_17_112215) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -18,25 +18,43 @@ ActiveRecord::Schema.define(version: 2019_01_12_131517) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "urls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", default: "", null: false
+  create_table "first_urls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.string "thumbnail", null: false
     t.integer "subscriber", null: false
     t.integer "view", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_urls_on_category_id", using: :btree
-  end
-
-  create_table "urls_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "point", null: false
-    t.integer "rank", null: false
-    t.bigint "url_id"
+    t.bigint "category_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["url_id"], name: "index_urls_users_on_url_id"
-    t.index ["user_id"], name: "index_urls_users_on_user_id"
+    t.index ["category_id"], name: "index_first_urls_on_category_id"
+    t.index ["user_id"], name: "index_first_urls_on_user_id"
+  end
+
+  create_table "second_urls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "thumbnail", null: false
+    t.integer "subscriber", null: false
+    t.integer "view", null: false
+    t.bigint "category_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_second_urls_on_category_id"
+    t.index ["user_id"], name: "index_second_urls_on_user_id"
+  end
+
+  create_table "third_urls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "thumbnail", null: false
+    t.integer "subscriber", null: false
+    t.integer "view", null: false
+    t.bigint "category_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_third_urls_on_category_id"
+    t.index ["user_id"], name: "index_third_urls_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -52,7 +70,10 @@ ActiveRecord::Schema.define(version: 2019_01_12_131517) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "urls", "categories"
-  add_foreign_key "urls_users", "urls"
-  add_foreign_key "urls_users", "users"
+  add_foreign_key "first_urls", "categories"
+  add_foreign_key "first_urls", "users"
+  add_foreign_key "second_urls", "categories"
+  add_foreign_key "second_urls", "users"
+  add_foreign_key "third_urls", "categories"
+  add_foreign_key "third_urls", "users"
 end
