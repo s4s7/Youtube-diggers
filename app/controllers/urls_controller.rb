@@ -3,9 +3,6 @@ class UrlsController < ApplicationController
   end
 
   def new
-    @url =Url.new
-  end
-
-  def create
+    @category = Category.new
   end
 end
