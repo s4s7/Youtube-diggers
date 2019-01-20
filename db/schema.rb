@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2019_01_17_112215) do
 
   create_table "first_urls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "title", null: false
+    t.string "author", null: false
     t.string "thumbnail", null: false
     t.integer "subscriber", null: false
     t.integer "view", null: false
@@ -33,6 +35,8 @@ ActiveRecord::Schema.define(version: 2019_01_17_112215) do
 
   create_table "second_urls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "title", null: false
+    t.string "author", null: false
     t.string "thumbnail", null: false
     t.integer "subscriber", null: false
     t.integer "view", null: false
@@ -46,6 +50,8 @@ ActiveRecord::Schema.define(version: 2019_01_17_112215) do
 
   create_table "third_urls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "title", null: false
+    t.string "author", null: false
     t.string "thumbnail", null: false
     t.integer "subscriber", null: false
     t.integer "view", null: false
