@@ -19,7 +19,19 @@
         &_rank {
             display: inline-block;
         }
-        #url_name {
+        #first_url_name {
+            margin-bottom: 20px;
+            height: 32px;
+            padding: 0 10px;
+            width: calc(100% - 166px);
+        }
+        #second_url_name {
+            margin-bottom: 20px;
+            height: 32px;
+            padding: 0 10px;
+            width: calc(100% - 166px);
+        }
+        #third_url_name {
             margin-bottom: 20px;
             height: 32px;
             padding: 0 10px;
