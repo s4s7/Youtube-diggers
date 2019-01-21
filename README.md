@@ -16,23 +16,60 @@
 # DB設計
 
 
-## urls_usersテーブル
+## first_urlsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references :user|foreign_key: true|
+|name|string|null: false|
+|title|string|null: false|
+|author|string|null: false|
+|thumbnail|string|null: false|
+|subscriber|integer|null: false|
+|view|integer|null: false|
+|category_id|references :user|foreign_key: true|
 |url_id|references :url|foreign_key: true|
-|point|fixnum|null: false|
-|rank|fixnum|null: false|
 
 ### Association
 - belongs_to :user
-- belongs_to :url
+- belongs_to :category
 
+
+## second_urlsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|title|string|null: false|
+|author|string|null: false|
+|thumbnail|string|null: false|
+|subscriber|integer|null: false|
+|view|integer|null: false|
+|category_id|references :user|foreign_key: true|
+|url_id|references :url|foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :category
+
+
+## third_urlsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|title|string|null: false|
+|author|string|null: false|
+|thumbnail|string|null: false|
+|subscriber|integer|null: false|
+|view|integer|null: false|
+|category_id|references :user|foreign_key: true|
+|url_id|references :url|foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :category
 
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
+|name|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
 
@@ -41,37 +78,23 @@
 - has_many :urls_users
 
 
-## urlsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|thumbnail|string|null: false|
-|subscriber|fixnum|null: false|
-|view|fixnum|null: false|
-|category_id|references :category|foreign_key: true|
-
-### Association
-- has_many :users, through:urls_users
-- has_many :urls_users
-- belongs_to :categorie
-
-
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 
 ### Association
-- has_many :urls
+- has_many :first_urls
+- has_many :second_urls
+- has_many :third_urls
 
 
 ## total_pointsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|name|string|null: false|
 |total_point|fixnum|null: false|
-
-### Association
-- has_one :url
+|category_id|references :user|foreign_key: true|
 
 
 # ER図
