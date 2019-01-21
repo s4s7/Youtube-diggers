@@ -36,6 +36,7 @@ class CategoriesController < ApplicationController
   end
 
   def scraping_video(url_array)
+    require 'open-uri'
     url = url_array.name
     urlId = url[/(?<==)(.*)/]
     doc = Nokogiri::HTML(open(url), nil, "UTF-8")
