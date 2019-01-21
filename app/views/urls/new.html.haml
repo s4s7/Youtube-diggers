@@ -24,15 +24,17 @@
       = f.label :title, '選んだカテゴリー'
       = f.text_field :name, placeholder: '上から選んでください'
 
-      = fields_for @url, url: urls_path do |url|
-        = url.label :title, '2.Youtubeの動画再生ページのurlを貼り付けてください', id: 'question'
-        = url.label :title, '1番目にすすめなURLを入れてください', class: 'form_rank'
-        = url.text_field :name, placeholder: 'urlを貼り付けてください'
+      #question 2.Youtubeの動画再生ページのurlを貼り付けてください
+      = fields_for @category.first_urls do |u|
+        = u.label :title, '1番目にすすめなURLを入れてください', class: 'form_rank'
+        = u.text_field :name, placeholder: 'urlを貼り付けてください', value: ''
 
-        = url.label :title, '2番目におすすめなURLを入れてください', class: 'form_rank'
-        = url.text_field :name,  placeholder: 'urlを貼り付けてください'
+      = fields_for @category.second_urls, url: urls_path do |uu|
+        = uu.label :title, '2番目におすすめなURLを入れてください', class: 'form_rank'
+        = uu.text_field :name, placeholder: 'urlを貼り付けてください', value: ''
 
-        = url.label :title, '3番目におすすめなURLを入れてください', class: 'form_rank'
-        = url.text_field :name, placeholder: 'urlを貼り付けてください'
+      = fields_for @category.third_urls do |uuu|
+        = uuu.label :title, '3番目におすすめなURLを入れてください', class: 'form_rank'
+        = uuu.text_field :name, placeholder: 'urlを貼り付けてください', value: ''
       %p
       = f.submit 'Send', class: 'submit'
