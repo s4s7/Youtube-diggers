@@ -8,8 +8,8 @@ class CategoriesController < ApplicationController
         format.json
       end
     else
-      flash.now[:alert] = 'メッセージを入力してください。'
-      render :index
+      flash.now[:alert] = 'カテゴリーを入力してください。'
+      render :template => "urls/new"
     end
 
     scraping_video(FirstUrl.new(first_url_params))
