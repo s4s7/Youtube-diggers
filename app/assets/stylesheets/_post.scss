@@ -16,26 +16,31 @@
             height: 32px;
             margin-bottom: 20px;
         }
-        &_rank {
-            display: inline-block;
-        }
         #first_url_name {
             margin-bottom: 20px;
             height: 32px;
             padding: 0 10px;
             width: calc(100% - 166px);
         }
+        #second_name {
+            display: none;
+        }
         #second_url_name {
             margin-bottom: 20px;
             height: 32px;
             padding: 0 10px;
             width: calc(100% - 166px);
+            display: none;
+        }
+        #third_name {
+            display: none;
         }
         #third_url_name {
             margin-bottom: 20px;
             height: 32px;
             padding: 0 10px;
             width: calc(100% - 166px);
+            display: none;
         }
         .submit {
             height: 40px;
