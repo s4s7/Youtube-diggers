@@ -11,7 +11,7 @@ class UrlsController < ApplicationController
     if @category.save
       if first_url_params['name'] == ''
         flash.now[:alert] = '一番おすすめのURLは必須です。'
-        render :template => "urls/new"
+        render new_url_path
       else
         scraping_video(FirstUrl.new(first_url_params))
         scraping_video(SecondUrl.new(second_url_params))
@@ -23,7 +23,7 @@ class UrlsController < ApplicationController
       end
     else
       flash.now[:alert] = 'カテゴリーを入力してください。'
-      render :template => "urls/new"
+      render new_url_path
     end
   end
 
