@@ -20,7 +20,7 @@
     %a.btn2{ category: "sport", href: "#", value: 'スノーボード'} スノーボード
 
   .form
-    = form_for @category do |f|
+    = form_for @category, url: {action: 'create'} do |f|
       = f.label :title, '選んだカテゴリー'
       = f.text_field :name, placeholder: '上から選んでください'
 
