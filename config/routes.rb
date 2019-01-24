@@ -3,5 +3,4 @@ Rails.application.routes.draw do
   root to: 'urls#index'
   resources :users, only: [:edit, :update]
   resources :urls, only: [:new, :create]
-  resources :categories, only: [:new, :create]
 end
