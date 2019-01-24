@@ -10,15 +10,12 @@ class UrlsController < ApplicationController
     @category = Category.new(category_params)
     if @category.save
       if first_url_params['name'] == ''
-        flash.now[:alert] = '一番おすすめのUrlは必須です。'
+        flash.now[:alert] = '一番おすすめのURLは必須です。'
         render :template => "urls/new"
       else
-        @first_url = scraping_video(FirstUrl.new(first_url_params))
-        @first_url.save
-        @second_url = scraping_video(SecondUrl.new(second_url_params))
-        @second_url.save
-        @third_url = scraping_video(ThirdUrl.new(third_url_params))
-        @third_url.save
+        scraping_video(FirstUrl.new(first_url_params))
+        scraping_video(SecondUrl.new(second_url_params))
+        scraping_video(ThirdUrl.new(third_url_params))
         respond_to do |format|
           format.html { redirect_to root_path, notice: '投稿できました' }
           format.json
@@ -57,7 +54,7 @@ class UrlsController < ApplicationController
       url_array['thumbnail'] = ''
       url_array['subscriber'] = ''
       url_array['view'] = ''
-      return url_array
+      url_array.save
     else
       urlId = url[/(?<==)(.*)/]
       doc = Nokogiri::HTML(open(url), nil, "UTF-8")
@@ -66,7 +63,7 @@ class UrlsController < ApplicationController
       url_array['thumbnail'] = "https://i.ytimg.com/vi/#{urlId}/default.jpg"
       url_array['subscriber'] = doc.css(".yt-subscription-button-subscriber-count-branded-horizontal").text
       url_array['view'] = doc.css('.watch-view-count').text.gsub(/[^\d]/, "").to_i
-      return url_array
+      url_array.save
     end
   end
 end
