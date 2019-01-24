@@ -1,39 +1,53 @@
 .post {
     text-align: center;
     margin: 20px 50px 0px;
-    p {
+    #question {
         font-weight: bold;
-    }
-    .classification {
-        margin: 10px 0;
+        display: block;
+        margin: 20px 0;
     }
     .category {
         margin: 10px 0;
     }
-    .chooseCategory {
+    .form {
         margin: 10px 0 70px;
-        display: inline-block;
-        #in1{
+        #category_name{
             text-align: center;
+            height: 32px;
+            margin-bottom: 20px;
         }
-    }
-
-    &__url {
-        margin-top: 20px;
-        &_form {
+        #first_url_name {
             margin-bottom: 20px;
             height: 32px;
             padding: 0 10px;
             width: calc(100% - 166px);
-            display: inline-block;
         }
-    .submit {
-        height: 40px;
-        background-color: $blue-grey;
-        color: white;
-        font-size: 16px;
-        border: none;
-        padding: 0 30px;
+        #second_name {
+            display: none;
+        }
+        #second_url_name {
+            margin-bottom: 20px;
+            height: 32px;
+            padding: 0 10px;
+            width: calc(100% - 166px);
+            display: none;
+        }
+        #third_name {
+            display: none;
+        }
+        #third_url_name {
+            margin-bottom: 20px;
+            height: 32px;
+            padding: 0 10px;
+            width: calc(100% - 166px);
+            display: none;
+        }
+        .submit {
+            height: 40px;
+            background-color: $blue-grey;
+            color: white;
+            font-size: 16px;
+            padding: 0 30px;
         }
     }
 }
