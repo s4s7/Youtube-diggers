@@ -34,12 +34,12 @@ ActiveRecord::Schema.define(version: 2019_01_17_112215) do
   end
 
   create_table "second_urls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "title", null: false
-    t.string "author", null: false
-    t.string "thumbnail", null: false
-    t.integer "subscriber", null: false
-    t.integer "view", null: false
+    t.string "name"
+    t.string "title"
+    t.string "author"
+    t.string "thumbnail"
+    t.integer "subscriber"
+    t.integer "view"
     t.bigint "category_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -49,12 +49,12 @@ ActiveRecord::Schema.define(version: 2019_01_17_112215) do
   end
 
   create_table "third_urls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "title", null: false
-    t.string "author", null: false
-    t.string "thumbnail", null: false
-    t.integer "subscriber", null: false
-    t.integer "view", null: false
+    t.string "name"
+    t.string "title"
+    t.string "author"
+    t.string "thumbnail"
+    t.integer "subscriber"
+    t.integer "view"
     t.bigint "category_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
