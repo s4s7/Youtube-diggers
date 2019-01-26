@@ -1,0 +1,68 @@
+.contribution
+  .header
+    .header__left
+      Category :
+      = first_url.category.name
+    .header__right
+      %ul
+        %li.header__right_item
+        = first_url.created_at.to_s
+        %li.header__right_item
+        投稿者 :
+        = first_url.user.name
+  .body
+    .card
+      .card__image
+        = link_to first_url.name, target: "_blank" do
+          %img{src: first_url.thumbnail, width: "320", height: "180"}
+      .card__content
+        .card__content_order
+          ①
+        .card__content_info
+          .card__content_info_title
+            = first_url.title
+          .card__content_info_detail
+            = first_url.author
+          %p
+            = first_url.view
+            回視聴
+
+    .card
+      .card__image
+        = link_to second_url.name, target: "_blank" do
+          %img{src: second_url.thumbnail, width: "320", height: "180"}
+      .card__content
+        .card__content_order
+          ②
+        .card__content_info
+          .card__content_info_title
+            = second_url.title
+          .card__content_info_detail
+            = second_url.author
+          %p
+          - if second_url.view.present?
+            = second_url.view
+            回視聴
+          - else
+            投稿なし
+      .card__title
+
+    .card
+      .card__image
+        = link_to third_url.name, target: "_blank" do
+          %img{src: third_url.thumbnail, width: "320", height: "180"}
+      .card__content
+        .card__content_order
+          ③
+        .card__content_info
+          .card__content_info_title
+            = third_url.title
+          .card__content_info_detail
+            = third_url.author
+          %p
+          - if third_url.view.present?
+            = third_url.view
+            回視聴
+          - else
+            投稿なし
+  / .footer

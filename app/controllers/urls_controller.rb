@@ -1,5 +1,8 @@
 class UrlsController < ApplicationController
   def index
+    @first_urls = FirstUrl.order("created_at DESC")
+    @second_urls = SecondUrl.order("created_at DESC")
+    @third_urls = ThirdUrl.order("created_at DESC")
   end
 
   def new
