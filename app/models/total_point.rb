@@ -1,0 +1,2 @@
+class TotalPoint < ApplicationRecord
+end
