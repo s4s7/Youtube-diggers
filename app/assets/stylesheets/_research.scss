@@ -1,0 +1,35 @@
+.card {
+    width: 320px;
+    height: 280px;
+    background-color: $light-grey;
+    margin: auto;
+    @extend .z-depth-1;
+    &__image {
+        height: 180px;
+    }
+    &__content {
+        height: 100px;
+        display: flex;
+        color: $black;
+        &_order {
+            font-size: 30px;
+            font-weight: bold;
+            padding: 4px;
+            line-height: 40px;
+        }
+        &_info {
+            max-width: 100%;
+            line-height: 20px;
+            padding: 4px;
+            &_title{
+                height: 50px;
+                font-size: 14px;
+                font-weight: bold;
+            }
+            &_detail {
+                font-size: 14px;
+                color: $light-black;
+            }
+        }
+    }
+}
