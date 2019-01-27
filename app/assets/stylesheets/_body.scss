@@ -35,7 +35,6 @@
             width: 320px;
             height: 280px;
             background-color: $light-grey;
-            display: inline-block;
             @extend .z-depth-1;
             &__image {
                 height: 180px;

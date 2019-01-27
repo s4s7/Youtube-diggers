@@ -30,6 +30,9 @@ class UrlsController < ApplicationController
     end
   end
 
+  def research
+  end
+
   private
 
   def category_params
