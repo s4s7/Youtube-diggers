@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_17_112215) do
+ActiveRecord::Schema.define(version: 2019_01_27_055533) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -63,6 +63,15 @@ ActiveRecord::Schema.define(version: 2019_01_17_112215) do
     t.index ["user_id"], name: "index_third_urls_on_user_id"
   end
 
+  create_table "total_points", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "youtube_url", null: false
+    t.integer "point", null: false
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_total_points_on_category_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -82,4 +91,5 @@ ActiveRecord::Schema.define(version: 2019_01_17_112215) do
   add_foreign_key "second_urls", "users"
   add_foreign_key "third_urls", "categories"
   add_foreign_key "third_urls", "users"
+  add_foreign_key "total_points", "categories"
 end
