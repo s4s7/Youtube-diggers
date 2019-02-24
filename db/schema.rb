@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_27_055533) do
+ActiveRecord::Schema.define(version: 2019_02_22_084502) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -69,6 +69,11 @@ ActiveRecord::Schema.define(version: 2019_01_27_055533) do
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
+    t.string "author"
+    t.string "thumbnail"
+    t.integer "subscriber"
+    t.integer "view"
     t.index ["category_id"], name: "index_total_points_on_category_id"
   end
 
