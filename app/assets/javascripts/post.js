@@ -24,7 +24,7 @@ $(document).on('turbolinks:load', function() {
       function rankingUrl(data, num){
         var html = `<div class='card'>
                       <div class='card__image'>
-                        <a target='blank' href= '${data.url}' >
+                        <a target='_blank' href= '${data.url}' >
                           <img height='180' src='${data.thumbnail}'>
                         </a>
                       </div>
