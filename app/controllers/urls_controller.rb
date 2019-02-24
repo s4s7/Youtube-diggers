@@ -22,9 +22,10 @@ class UrlsController < ApplicationController
         scraping_video(ThirdUrl.new(third_url_params))
 
         # ポイントの計算
-        points_calculator(FirstUrl.select(:name, :view, :subscriber, :category_id), const=1000)
-        points_calculator(SecondUrl.select(:name, :view, :subscriber, :category_id), const=500)
-        points_calculator(ThirdUrl.select(:name, :view, :subscriber, :category_id), const=300)
+        points_calculator(FirstUrl.select(:name, :title, :author, :thumbnail, :view, :subscriber, :category_id), const=1000)
+        points_calculator(SecondUrl.select(:name, :title, :author, :thumbnail, :view, :subscriber, :category_id), const=500)
+        points_calculator(ThirdUrl.select(:name, :title, :author, :thumbnail, :view, :subscriber, :category_id), const=300)
+
 
         respond_to do |format|
           format.html { redirect_to root_path, notice: '投稿できました' }
@@ -87,17 +88,22 @@ class UrlsController < ApplicationController
 
   def points_calculator(order_youtube_url, const)
     order_youtube_url.each do |url|
-    @total_point = TotalPoint.find_by(youtube_url: url.name)
-    if @total_point then
-      @total_point[:point] += const/(url.view**(1/2.0)+url.subscriber**(1/2.0))
-    else
-      @total_point = TotalPoint.new
-      @total_point[:youtube_url] = url.name
-      @total_point[:category_id] = url.category_id
-      @total_point[:point] = const/(url.view**(1/2.0)+url.subscriber**(1/2.0))
+      @total_point = TotalPoint.find_by(youtube_url: url.name)
+      if @total_point then
+        @total_point[:point] += const/(url.view**(1/2.0)+url.subscriber**(1/2.0))
+      else
+        @total_point = TotalPoint.new
+        @total_point[:youtube_url] = url.name
+        @total_point[:category_id] = url.category_id
+        @total_point[:title] = url.title
+        @total_point[:author] = url.author
+        @total_point[:thumbnail] = url.thumbnail
+        @total_point[:subscriber] = url.subscriber
+        @total_point[:view] = url.view
+        @total_point[:point] = const/(url.view**(1/2.0)+url.subscriber**(1/2.0))
+      end
+      @total_point.save
     end
-    @total_point.save
-  end
   end
 
 end
