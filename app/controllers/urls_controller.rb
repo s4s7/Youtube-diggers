@@ -79,7 +79,7 @@ class UrlsController < ApplicationController
       url_array['title'] = doc.xpath("//h1['channel-title-container']/span").text.gsub(/\n/, "").gsub(/^\s+/, "").gsub(/\s+$/, "")
       url_array['author'] = doc.xpath("//*[@id='watch7-user-header']/div/a").text
       url_array['thumbnail'] = "https://i.ytimg.com/vi/#{urlId}/default.jpg"
-      url_array['subscriber'] = doc.css(".yt-subscription-button-subscriber-count-branded-horizontal").text
+      url_array['subscriber'] = doc.css(".yt-subscription-button-subscriber-count-branded-horizontal").text.gsub(/(\d+)万/){$1}.to_f * 10000
       url_array['view'] = doc.css('.watch-view-count').text.gsub(/[^\d]/, "").to_i
       url_array.save
     end
