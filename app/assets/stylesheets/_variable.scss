@@ -77,10 +77,9 @@ $medium-screen: 992px;
 }
 
 // search
-.form_research {
-    #category_name{
-        text-align: center;
-        height: 32px;
-        margin-bottom: 20px;
-    }
+#category_name{
+    text-align: center;
+    height: 32px;
+    width: 200px;
+    margin-bottom: 20px;
 }
