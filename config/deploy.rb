@@ -3,14 +3,13 @@ lock "~> 3.11.0"
 
 set :application, "Youtube-diggers"
 set :repo_url, "git@github.com:s4s7/Youtube-diggers.git"
-
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.3.1'
 
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/youtube_diggers.pem']
+                  keys: ['/Users/shoyo/.ssh/youtube_diggers.pem']
 
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
