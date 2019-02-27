@@ -92,8 +92,13 @@
 ## total_pointsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|total_point|fixnum|null: false|
+|youtuybe_url|string|null: false|
+|title|string|null: false|
+|author|string|null: false|
+|thumbnail|string|null: false|
+|subscriber|string|null: false|
+|view|integer|null: false|
+|point|integer|null: false|
 |category_id|references :user|foreign_key: true|
 
 
