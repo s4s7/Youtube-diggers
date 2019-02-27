@@ -14,7 +14,7 @@ class UrlsController < ApplicationController
     if @category.save
       if first_url_params['name'] == ''
         flash.now[:alert] = '一番おすすめのURLは必須です。'
-        render new_url_path
+        render new_url_path and return
       else
         # スクレイピング
         scraping_video(FirstUrl.new(first_url_params))
@@ -25,14 +25,10 @@ class UrlsController < ApplicationController
         points_calculator(FirstUrl.select(:name, :title, :author, :thumbnail, :view, :subscriber, :category_id), const=1000)
         points_calculator(SecondUrl.select(:name, :title, :author, :thumbnail, :view, :subscriber, :category_id), const=500)
         points_calculator(ThirdUrl.select(:name, :title, :author, :thumbnail, :view, :subscriber, :category_id), const=300)
-
-        respond_to do |format|
-          format.html { redirect_to root_path, notice: '投稿できました' }
-        end
+        redirect_to root_path, notice: '投稿できました' and return
       end
     else
-      flash.now[:alert] = 'カテゴリーを入力してください。'
-      render new_url_path
+      redirect_to new_url_path, alert: 'カテゴリーを入力してください。' and return
     end
   end
 
