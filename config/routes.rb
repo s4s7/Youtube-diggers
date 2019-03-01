@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :urls, only: [:new, :create] do
     collection do
-      get 'research'
+      get 'search'
     end
   end
 end

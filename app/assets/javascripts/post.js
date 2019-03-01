@@ -20,7 +20,7 @@ $(document).on('turbolinks:load', function() {
       $('#category_name').val(value);
 
       // カテゴリー別ランキング
-      var ranking_result = $(".form_research");
+      var ranking_result = $(".form_search");
       function rankingUrl(data, num){
         var html = `<div class='card'>
                       <div class='card__image'>
@@ -47,7 +47,7 @@ $(document).on('turbolinks:load', function() {
       }
       var category = $('#category_name').val()
       $.ajax({
-        url: '/urls/research/',
+        url: '/urls/search/',
         type: 'GET',
         data: {category: category},
         dataType: 'json',

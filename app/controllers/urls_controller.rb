@@ -32,13 +32,13 @@ class UrlsController < ApplicationController
     end
   end
 
-  def research
-    @research_categories = Category.where(name: "#{params[:category]}")
-    research_category_id = []
-    @research_categories.each do |research_category|
-      research_category_id.push(research_category.id)
+  def search
+    @search_categories = Category.where(name: "#{params[:category]}")
+    search_category_id = []
+    @search_categories.each do |search_category|
+      search_category_id.push(search_category.id)
     end
-    @urls = TotalPoint.where(category_id: research_category_id).order('point DESC')
+    @urls = TotalPoint.where(category_id: search_category_id).order('point DESC')
   end
 
   private
