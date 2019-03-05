@@ -105,3 +105,7 @@
 # ER図
 
 ### https://github.com/s4s7/Youtube-diggers/issues/4
+
+# 環境
+
+### Rails 5.2.1.1
