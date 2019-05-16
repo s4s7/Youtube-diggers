@@ -83,12 +83,17 @@ class UrlsController < ApplicationController
 
   def points_calculator(order_youtube_url, const)
     order_youtube_url.each do |url|
+
       if url.name == ''
       else
+        # URLが存在する場合
         @total_point = TotalPoint.find_by(youtube_url: url.name)
+
         if @total_point then
+          # すでに登録済みのURLに対して
           @total_point[:point] += const/(url.view**(1/2.0)+url.subscriber**(1/2.0))
         else
+          # 新しいURLに対して
           @total_point = TotalPoint.new
           @total_point[:youtube_url] = url.name
           @total_point[:category_id] = url.category_id
@@ -99,6 +104,7 @@ class UrlsController < ApplicationController
           @total_point[:view] = url.view
           @total_point[:point] = const/(url.view**(1/2.0)+url.subscriber**(1/2.0))
         end
+
         @total_point.save
       end
     end
