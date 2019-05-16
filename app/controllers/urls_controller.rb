@@ -15,17 +15,33 @@ class UrlsController < ApplicationController
       if first_url_params['name'] == ''
         flash.now[:alert] = '一番おすすめのURLは必須です。'
         render new_url_path and return
-      else
-        # スクレイピング
+      # スクレイピング
+      elsif first_url_params['name'].include?('https://www.youtube.com/watch?v')
         scraping_video(FirstUrl.new(first_url_params))
-        scraping_video(SecondUrl.new(second_url_params))
-        scraping_video(ThirdUrl.new(third_url_params))
+        if second_url_params['name'].include?('https://www.youtube.com/watch?v') || second_url_params['name'] == ''
+          scraping_video(SecondUrl.new(second_url_params))
+        else
+          blank_creator(SecondUrl.new(third_url_params))
+          blank_creator(ThirdUrl.new(third_url_params))
+          flash.now[:alert] = 'URLが不適切です'
+          render new_url_path and return
+        end
+        if third_url_params['name'].include?('https://www.youtube.com/watch?v') || third_url_params['name'] == ''
+          scraping_video(ThirdUrl.new(third_url_params))
+        else
+          blank_creator(ThirdUrl.new(third_url_params))
+          flash.now[:alert] = 'URLが不適切です'
+          render new_url_path and return
+        end
 
         # ポイントの計算
         points_calculator(FirstUrl.select(:name, :title, :author, :thumbnail, :view, :subscriber, :category_id), const=1000)
         points_calculator(SecondUrl.select(:name, :title, :author, :thumbnail, :view, :subscriber, :category_id), const=500)
         points_calculator(ThirdUrl.select(:name, :title, :author, :thumbnail, :view, :subscriber, :category_id), const=300)
         redirect_to root_path, notice: '投稿できました' and return
+      else
+        flash.now[:alert] = 'URLが不適切です'
+        render new_url_path and return
       end
     else
       redirect_to new_url_path, alert: 'カテゴリーを入力してください。' and return
@@ -63,12 +79,7 @@ class UrlsController < ApplicationController
     require 'open-uri'
     url = url_array.name
     if url == ''
-      url_array['title'] = ''
-      url_array['author'] = ''
-      url_array['thumbnail'] = ''
-      url_array['subscriber'] = ''
-      url_array['view'] = ''
-      url_array.save
+      blank_creator(url_array)
     else
       urlId = url[/(?<==)(.*)/]
       doc = Nokogiri::HTML(open(url), nil, "UTF-8")
@@ -108,6 +119,15 @@ class UrlsController < ApplicationController
         @total_point.save
       end
     end
+  end
+
+  def blank_creator(url_array)
+      url_array['title'] = ''
+      url_array['author'] = ''
+      url_array['thumbnail'] = ''
+      url_array['subscriber'] = ''
+      url_array['view'] = ''
+      url_array.save
   end
 
 end
